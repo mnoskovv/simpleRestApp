@@ -1,0 +1,26 @@
+{% extends "article/base.html" %}
+{% load bootstrap4 %}
+
+{% block header%}
+    <h3>Articles</h3>
+{% endblock header%}
+
+{% block content %}
+    {% for article in articles %}
+        <div class="card mt-3">
+            <div class="card-header">
+                {{ article.title }}
+                <!-- {{ article.description }} -->
+            </div>
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                   <p>{{ article.body }}</p> 
+                   <footer class="blockquote-footer">{{ article.author }}</footer>
+                </blockquote>
+            </div>
+        </div>        
+    {% empty %}
+        <h2>No articles yet</h2>
+    {% endfor %}
+
+{% endblock content %}
